@@ -82,18 +82,19 @@ sc.tl.umap(adata)
 # clustering
 sc.tl.leiden(adata)
 sc.pl.umap(adata, color='leiden')
+
+sc.tl.rank_genes_groups(adata, groupby='leiden', method='wilcoxon')
+sc.pl.rank_genes_groups(adata, n_genes=25, sharey=False)
 #adata.write(results_file)
 # adata=sc.read_h5ad(results_file)
 
 markers = ["MS4A1", "TYROBP", "CD14",'FCGR3A', "FCER1A", "CCR7", "IL7R", "PPBP", "CD8A"]
 sc.pl.umap(adata, color=markers, ncols=3)
-adata.write(results_file)
+# adata.write(results_file)
 new_cluster_names = ['Naive CD4 T', 'Memory CD4', 'CD14 Monocytes','B', 'CD8 T', 'FCGR3A Monocytes','NK', 'DC', 'Platelet']
 adata.rename_categories('leiden', new_cluster_names)
 sc.settings.set_figure_params(dpi=50, dpi_save=300, figsize=(7, 7))
 sc.pl.umap(adata, color='leiden', legend_loc='on data')
-sc.tl.rank_genes_groups(adata, groupby='leiden', method='wilcoxon')
-sc.pl.rank_genes_groups(adata, n_genes=25, sharey=False)
 # adata.write(results_file1)
 # adata=sc.read_h5ad(results_file)
 # sc.tl.rank_genes_groups(adata, 'leiden', method='logreg')

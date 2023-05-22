@@ -9,7 +9,7 @@ pipeline{
         }
         stage("run MyScanpy"){
             steps{
-                sh "pythons3 hjt/MyScanpy.py"
+                sh "pythons3 MyScanpy.py"
             }
         }
 

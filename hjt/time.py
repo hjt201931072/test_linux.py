@@ -27,7 +27,7 @@ plt.savefig("paga_celltype1.pdf")
 #利用PAGA重新计算细胞之间的距离
 sc.tl.draw_graph(data, init_pos='paga')
 sc.pl.draw_graph(data, color=['louvain_anno','MS4A1', 'NKG7', 'PPBP'], legend_loc='on data')
-plt.savefig("paga_celltype_graph.pdf")
+
 
 zeileis_colors = np.array(sc.pl.palettes.zeileis_28)
 new_colors = np.array(data.uns['louvain_anno_colors'])

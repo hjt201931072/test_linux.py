@@ -69,7 +69,7 @@ import gseapy as gp
 # simple plotting function
 from gseapy.plot import barplot, dotplot
 
-names = gp.get_library_name()  # default: Human
+  # default: Human
 
 # 富集查询
 enr = gp.enrichr(gene_list=gene_set_list,
