@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    parameters {
+        file(name: 'dataset', description: 'Single-cell sequencing dataset')
+    }
+    stages {
+        stage('Preprocessing') {
+            steps {
+                sh "python3 analysis.py preprocess ${params.dataset}"
+            }
+        }
+        stage('Clustering') {
+            steps {
+                sh "python3 analysis.py cluster"
+            }
+        }
+        stage('Visualization') {
+            steps {
+                sh "python3 analysis.py visualize"
+            }
+        }
+    }
+}
