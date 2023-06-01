@@ -6,17 +6,17 @@ pipeline {
     stages {
         stage('Preprocessing') {
             steps {
-                sh "python3 normal.py preprocess ${params.dataset}"
+                bat "python3 normal.py preprocess ${params.dataset}"
             }
         }
         stage('Clustering') {
             steps {
-                sh "python3 normal.py cluster"
+                bat "python3 normal.py cluster"
             }
         }
         stage('Visualization') {
             steps {
-                sh "python3 normal.py visualize"
+                bat "python3 normal.py visualize"
             }
         }
     }
