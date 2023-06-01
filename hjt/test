@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    stages{
+        stage("first"){
+            steps{
+                echo 'hello world'
+            }
+
+        }
+        stage("run MyScanpy"){
+            steps{
+               bat "python test.py"
+            }
+        }
+
+    }
+
+
+
+
+}
