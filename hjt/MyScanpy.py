@@ -16,11 +16,11 @@ import bbknn
 #
 #
 # adata = sc.datasets.pbmc3k()
-adata = sc.read_10x_mtx('data1/filtered_gene_bc_matrices/', var_names='gene_symbols', cache=True)
+adata = sc.read_10x_mtx('.\\data1\\filtered_gene_bc_matrices/', var_names='gene_symbols', cache=True)
 adata.var_names_make_unique()
 adata
-obs = pd.read_csv('./data1/filtered_gene_bc_matrices/barcodes.tsv', header=None, index_col=0, sep='\t')
-var = pd.read_csv('./data1/filtered_gene_bc_matrices/genes.tsv', header=None, index_col=1, sep='\t')
+obs = pd.read_csv('.\\data1\\filtered_gene_bc_matrices\\barcodes.tsv', header=None, index_col=0, sep='\t')
+var = pd.read_csv('.\\data1\\filtered_gene_bc_matrices\\genes.tsv', header=None, index_col=1, sep='\t')
 obs.index.name = ''
 var.index.name = ''
 var.columns = ['gene_ids']
@@ -28,7 +28,7 @@ var.columns = ['gene_ids']
 
 from scipy.io import mmread
 from scipy.sparse import csr_matrix
-mtx = mmread('./data1/filtered_gene_bc_matrices/matrix.mtx')
+mtx = mmread('.\\data1\\filtered_gene_bc_matrices\\matrix.mtx')
 mtx = mtx.T
 mtx = csr_matrix(mtx)
 adata1 = sc.AnnData(mtx, obs=obs, var=var)
