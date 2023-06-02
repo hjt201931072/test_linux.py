@@ -9,7 +9,7 @@ pipeline{
         }
         stage("run MyScanpy"){
             steps{
-               bat "python MyScanpy.py"
+               bat "python hjt\MyScanpy.py"
             }
         }
 
